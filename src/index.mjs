@@ -1,31 +1,34 @@
-/*import {
-  ALL_POSTS,
-  REGISTER_URL,
-  LOGIN_URL,
-  POSTS_URL,
-  ERROR_IF_NOT_GETTING_DATA,
-} from "./constants.mjs";*/
-console.log("index.mjs is connected bitchhhhhh");
+import { loadNavbar } from "./navbar.mjs";
+loadNavbar();
 
-/*token stored after login*/
+console.log("index.mjs is connected!!!!!!!!!!!!!!");
+
+/*gets blog posts from the API*/
 async function fetchBlogPosts() {
+  /*to get the login info from local storage*/
   const token = localStorage.getItem("token");
-  const username = localStorage.getItem("username");
+  const username = localStorage.getItem("username") || "siennasinclair";
   const apiKey = "35489523-dbb9-48dd-9bfe-d00c2ea7e78b";
 
   console.log("Token from localStorage:", token);
-  console.log("Username from localStorage", username);
 
+  const headers = {
+    "X-Noroff-API-Key": apiKey,
+    "Content-Type": "application/json",
+  };
+
+  /*if logged in, add the authorization header*/
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  /*sending request to get posts*/
   try {
     const response = await fetch(
       `https://v2.api.noroff.dev/blog/posts/${username}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "X-Noroff-API-Key": apiKey,
-          "Content-Type": "application/json",
-        },
+        headers: headers,
       }
     );
 
@@ -36,7 +39,7 @@ async function fetchBlogPosts() {
         "Could not get blog posts. Status code: " + response.status
       );
     }
-
+    /*return list of blog posts*/
     return json.data;
   } catch (error) {
     console.error("Error getting blog posts:", error);
@@ -44,6 +47,7 @@ async function fetchBlogPosts() {
   }
 }
 
+/*function to show the blog posts grid*/
 function renderPostGrid(blogPosts) {
   const grid = document.getElementById("post-grid");
   grid.innerHTML = "";
@@ -63,29 +67,17 @@ function renderPostGrid(blogPosts) {
       post.media && post.media.alt ? post.media.alt : "Blog post image";
 
     card.innerHTML =
-      '<img src="' +
-      imageUrl +
-      '" alt="' +
-      imageAlt +
-      '">' +
-      '<p class="post-date">' +
-      post.created +
-      "</p>" +
-      '<h3 class="post-title">' +
-      post.title +
-      "</h3>" +
-      '<p class="post-subtitle">' +
-      post.body +
-      "</p>" +
-      '<a class="read-more" href="post/index.html?id=' +
-      post.id +
-      '">read more</a>';
+      `<img src="${imageUrl}" alt="${imageAlt}">` +
+      `<p class="post-date">${post.created}</p>` +
+      `<h3 class="post-title">${post.title}</h3>` +
+      `<p class="post-subtitle">${post.body}</p>` +
+      `<a class="read-more" href="post/index.html?id=${post.id}">read more</a>`;
 
     grid.appendChild(card);
   }
 }
 
-// CAROUSEL
+/* CAROUSEL*/
 
 const slides = document.querySelectorAll(".slide");
 let slideIndex = 0;
