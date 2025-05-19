@@ -5,11 +5,12 @@ loadNavbar();
 const postId = new URLSearchParams(window.location.search).get("id");
 
 /*get login info that was saved when the user was logged in*/
-const username = localStorage.getItem("username") || "siennasinclair";
+const ownerUsername = "siennasinclair";
+const storedUsername = localStorage.getItem("username");
 const token = localStorage.getItem("token");
 
 const apiKey = "35489523-dbb9-48dd-9bfe-d00c2ea7e78b";
-const postUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
+const postUrl = `https://v2.api.noroff.dev/blog/posts/${ownerUsername}/${postId}`;
 
 /* getting blog post from the API*/
 async function getBlogPost() {
@@ -32,16 +33,16 @@ async function getBlogPost() {
     /* to show the blog post title on the page*/
     document.getElementById("post-title").textContent = post.title;
 
+    /*to show the image for the blog post*/
+    const image = document.getElementById("post-image");
+
     /*to show when it was published*/
-    document.getElementById(
-      "post-meta"
-    ).textContent = `Published: ${post.created}`;
+    document.getElementById("post-meta").textContent = `By ${
+      post.author.name
+    } | Published: ${new Date(post.created).toLocaleDateString()}`;
 
     /*to show the blog post text*/
     document.getElementById("post-body").textContent = post.body;
-
-    /*to show the image for the blog post*/
-    const image = document.getElementById("post-image");
 
     /*if the post has an image, use it. If not, show a placeholder image*/
     if (post.media && post.media.url) {
@@ -49,8 +50,8 @@ async function getBlogPost() {
       image.alt = post.media.alt || "Blog post image"; /*OR*/
     }
 
-    /* edit button only if the user is logged in*/
-    if (token && username) {
+    /* edit button only if the user logged is is the blog owner*/
+    if (token && storedUsername === ownerUsername) {
       const editContainer = document.querySelector(".edit-container");
 
       const editBtn = document.createElement("a");

@@ -1,5 +1,12 @@
-import { loadNavbar } from "../navbar.mjs";
+import { loadNavbar } from "./navbar.mjs";
 loadNavbar();
+
+/*to check if the user is logged in*/
+const token = localStorage.getItem("token");
+if (!token) {
+  alert("You must be logged in to create a blog post!");
+  window.location.href = "/account/login.html";
+}
 
 const form = document.getElementById("create-post-form");
 

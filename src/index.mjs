@@ -3,11 +3,12 @@ loadNavbar();
 
 console.log("index.mjs is connected!!!!!!!!!!!!!!");
 
+const ownerUsername = "siennasinclair";
+
 /*gets blog posts from the API*/
 async function fetchBlogPosts() {
   /*to get the login info from local storage*/
   const token = localStorage.getItem("token");
-  const username = localStorage.getItem("username") || "siennasinclair";
   const apiKey = "35489523-dbb9-48dd-9bfe-d00c2ea7e78b";
 
   console.log("Token from localStorage:", token);
@@ -25,7 +26,7 @@ async function fetchBlogPosts() {
   /*sending request to get posts*/
   try {
     const response = await fetch(
-      `https://v2.api.noroff.dev/blog/posts/${username}`,
+      `https://v2.api.noroff.dev/blog/posts/${ownerUsername}`,
       {
         method: "GET",
         headers: headers,
@@ -68,7 +69,6 @@ function renderPostGrid(blogPosts) {
 
     card.innerHTML =
       `<img src="${imageUrl}" alt="${imageAlt}">` +
-      `<p class="post-date">${post.created}</p>` +
       `<h3 class="post-title">${post.title}</h3>` +
       `<p class="post-subtitle">${post.body}</p>` +
       `<a class="read-more" href="post/index.html?id=${post.id}">read more</a>`;
@@ -80,79 +80,88 @@ function renderPostGrid(blogPosts) {
 /* CAROUSEL*/
 
 const slides = document.querySelectorAll(".slide");
-let slideIndex = 0;
-
 function showCarouselPosts(blogPosts) {
   const slideContainer = document.querySelector(".slides");
   slideContainer.innerHTML = "";
 
-  let postNumber = 0;
+  for (let i = 0; i < 3 && i < blogPosts.length; i++) {
+    const post = blogPosts[i];
 
-  while (postNumber < 3 && postNumber < blogPosts.length) {
-    const post = blogPosts[postNumber];
-
-    /*?. checks if media exists before trying .url. If it doesn’t exist, it uses a placeholder image instead*/
     const imageUrl =
-      post.media && post.media.url
-        ? post.media.url
-        : "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?auto=format&fit=crop&w=600&q=80";
-    const imageAlt =
-      post.media && post.media.alt ? post.media.alt : "Blog post image";
+      post.media?.url ||
+      "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?auto=format&fit=crop&w=600&q=80";
+    const imageAlt = post.media?.alt || "Blog post image";
 
-    let slideHTML = '<div class="slide blog-post-card">';
-    slideHTML += '<img src="' + imageUrl + '" alt="' + imageAlt + '">';
-    slideHTML += '<p class="post-date">' + post.created + "</p>";
-    slideHTML += '<h3 class="post-title">' + post.title + "</h3>";
-    slideHTML += '<p class="post-subtitle">' + post.body + "</p>";
-    slideHTML +=
-      '<a class="read-more" href="post/index.html?id=' +
-      post.id +
-      '">read more</a>';
-    slideHTML += "</div>";
+    const slide = document.createElement("div");
+    slide.classList.add("slide");
 
-    slideContainer.innerHTML += slideHTML;
+    // Reuse your blog card structure
+    slide.innerHTML = `
+      <div class="blog-post-card">
+        <img src="${imageUrl}" alt="${imageAlt}">
+        
+        <h3 class="post-title">${post.title}</h3>
+        <p class="post-subtitle">${post.body}</p>
+        <a class="read-more" href="post/index.html?id=${post.id}">read more</a>
+      </div>
+    `;
 
-    postNumber = postNumber + 1;
+    slideContainer.appendChild(slide);
   }
 }
 
-//initializeSlider();
+let slideIndex = 0;
 
-function initializeSlider() {
-  if (slides.length > 0) {
-    slides[slideIndex].classList.add("displaySlide");
-  }
-
-  document.querySelector(".prev").addEventListener("click", prevSlide);
-  document.querySelector(".next").addEventListener("click", nextSlide);
-}
-
+// Show the slide at the current index
 function showSlide(index) {
-  if (index >= slides.length) {
-    slideIndex = 0;
+  const slideContainer = document.querySelector(".slides");
+  const totalSlides = document.querySelectorAll(".slide").length;
+
+  if (index >= totalSlides) {
+    index = 0;
   } else if (index < 0) {
-    slideIndex = slides.length - 1;
+    index = totalSlides - 1;
   }
-  slides.forEach((slide) => {
-    slide.classList.remove("displaySlide");
-  });
-  slides[slideIndex].classList.add("displaySlide");
+
+  slideIndex = index;
+
+  const slideWidth = slideContainer.clientWidth;
+  slideContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
 }
 
-function prevSlide() {
-  slideIndex--;
-  showSlide(slideIndex);
-}
-
+// Go to next slide
 function nextSlide() {
-  slideIndex++;
+  showSlide(slideIndex + 1);
+}
+
+// Go to previous slide
+function prevSlide() {
+  showSlide(slideIndex - 1);
+}
+
+// Set up the buttons
+function initializeSlider() {
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", prevSlide);
+    nextBtn.addEventListener("click", nextSlide);
+  }
+
+  // Show first slide on page load
   showSlide(slideIndex);
 }
+
+/* ========== ON PAGE LOAD ========== */
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Page loaded - RUNNING fetchBlogPosts()!!!!");
+
   const posts = await fetchBlogPosts();
   console.log("Blog posts:", posts);
 
-  renderPostGrid(posts);
+  renderPostGrid(posts); // Show blog grid
+  showCarouselPosts(posts); // Show carousel slides
+  initializeSlider(); // Set up buttons and initial view
 });

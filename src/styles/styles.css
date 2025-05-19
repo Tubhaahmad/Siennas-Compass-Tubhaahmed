@@ -205,46 +205,48 @@ h1 {
 /*CAROUSEL*/
 
 .slider {
-  position: relative;
-  max-width: 400px;
-  margin: 0 auto;
   overflow: hidden;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  border-radius: 10px;
 }
 
-.slider img {
-  width: 400px;
-  max-height: 600px;
-  display: none;
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  height: 500px;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-img.displaySlide {
-  display: block;
-  animation-name: fade;
-  animation-duration: 1s;
-}
-
-.slider button {
+/* Optional for buttons */
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  padding: 10px 15px;
-  background-color: rgb(80, 188, 224);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
+  padding: 10px;
+  font-size: 1.5rem;
   cursor: pointer;
+  z-index: 10;
 }
 
-.previous {
-  left: 0;
+.prev {
+  left: 10px;
 }
 
 .next {
-  right: 0;
+  right: 10px;
 }
 
 @keyframes fade {

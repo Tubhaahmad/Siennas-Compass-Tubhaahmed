@@ -1,4 +1,8 @@
-const LOGIN_URL = "https://v2.api.noroff.dev/auth/login";
+import { loadNavbar } from "../src/navbar.mjs";
+loadNavbar();
+
+console.log("Login page is working!!!!!!");
+
 const form = document.getElementById("login-form");
 
 /* do this when the form is submitted*/
@@ -34,6 +38,7 @@ form.addEventListener("submit", async function (event) {
     /*This is to tell the user they logged in*/
     localStorage.setItem("token", data.data.accessToken);
     localStorage.setItem("username", data.data.name);
+    localStorage.setItem("user", JSON.stringify(data.data));
 
     alert("You are logged in!");
 
