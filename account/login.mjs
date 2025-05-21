@@ -17,7 +17,7 @@ form.addEventListener("submit", async function (event) {
     email: email,
     password: password, // use the exact one you registered with
   };
-  /*Sending the login info to the API*/
+  /*sending the login info to the API*/
   try {
     const response = await fetch("https://v2.api.noroff.dev/auth/login", {
       method: "POST",
@@ -27,7 +27,7 @@ form.addEventListener("submit", async function (event) {
       body: JSON.stringify(loginInfo),
     });
 
-    /*Turn the response into data we can use*/
+    /*turn the response into data we can use*/
     const data = await response.json();
 
     if (!response.ok) {
@@ -35,14 +35,14 @@ form.addEventListener("submit", async function (event) {
       return;
     }
 
-    /*This is to tell the user they logged in*/
+    /*this is to tell the user they logged in*/
     localStorage.setItem("token", data.data.accessToken);
     localStorage.setItem("username", data.data.name);
     localStorage.setItem("user", JSON.stringify(data.data));
 
     alert("You are logged in!");
 
-    /*This is to go back to the homepage*/
+    /*this is to go back to the homepage*/
     window.location.href = "../index.html";
   } catch (error) {
     console.log("Something went wrong:", error);

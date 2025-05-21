@@ -49,6 +49,7 @@ async function fetchBlogPosts() {
 }
 
 /*function to show the blog posts grid*/
+
 function renderPostGrid(blogPosts) {
   const grid = document.getElementById("post-grid");
   grid.innerHTML = "";
@@ -70,12 +71,29 @@ function renderPostGrid(blogPosts) {
     card.innerHTML =
       `<img src="${imageUrl}" alt="${imageAlt}">` +
       `<h3 class="post-title">${post.title}</h3>` +
-      `<p class="post-subtitle">${post.body}</p>` +
+      `<p class="post-preview">${post.body}</p>` +
       `<a class="read-more" href="post/index.html?id=${post.id}">read more</a>`;
 
     grid.appendChild(card);
   }
 }
+
+function revealOnScroll() {
+  const cards = document.querySelectorAll(".blog-post-card");
+
+  const triggerPoint = window.innerHeight * 0.9;
+
+  cards.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < triggerPoint) {
+      card.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
 /* CAROUSEL*/
 
@@ -95,15 +113,14 @@ function showCarouselPosts(blogPosts) {
     const slide = document.createElement("div");
     slide.classList.add("slide");
 
-    // Reuse your blog card structure
+    /*reuse your blog card structure*/
     slide.innerHTML = `
       <div class="blog-post-card">
-        <img src="${imageUrl}" alt="${imageAlt}">
-        
-        <h3 class="post-title">${post.title}</h3>
-        <p class="post-subtitle">${post.body}</p>
-        <a class="read-more" href="post/index.html?id=${post.id}">read more</a>
-      </div>
+    <img src="${imageUrl}" alt="${imageAlt}">
+    <h3 class="post-title">${post.title}</h3>
+    <p class="post-preview">${post.body}</p>
+    <a class="read-more" href="post/index.html?id=${post.id}">read more</a>
+  </div>
     `;
 
     slideContainer.appendChild(slide);
@@ -112,7 +129,7 @@ function showCarouselPosts(blogPosts) {
 
 let slideIndex = 0;
 
-// Show the slide at the current index
+/*show the slide at the current index*/
 function showSlide(index) {
   const slideContainer = document.querySelector(".slides");
   const totalSlides = document.querySelectorAll(".slide").length;
@@ -129,17 +146,19 @@ function showSlide(index) {
   slideContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
 }
 
-// Go to next slide
+/*Go to next slide*/
+
 function nextSlide() {
   showSlide(slideIndex + 1);
 }
 
-// Go to previous slide
+/*Go to previous slide*/
 function prevSlide() {
   showSlide(slideIndex - 1);
 }
 
-// Set up the buttons
+/*Set up the buttons*/
+
 function initializeSlider() {
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
@@ -149,11 +168,11 @@ function initializeSlider() {
     nextBtn.addEventListener("click", nextSlide);
   }
 
-  // Show first slide on page load
+  /*Show first slide on page load*/
   showSlide(slideIndex);
 }
 
-/* ========== ON PAGE LOAD ========== */
+/*on page load*/
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Page loaded - RUNNING fetchBlogPosts()!!!!");
@@ -161,7 +180,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const posts = await fetchBlogPosts();
   console.log("Blog posts:", posts);
 
-  renderPostGrid(posts); // Show blog grid
-  showCarouselPosts(posts); // Show carousel slides
-  initializeSlider(); // Set up buttons and initial view
+  renderPostGrid(posts);
+  showCarouselPosts(posts);
+  initializeSlider();
+
+  const heroText = document.querySelector(".hero-text-container");
+  if (heroText) {
+    setTimeout(() => {
+      heroText.classList.add("show");
+    }, 300);
+  }
 });

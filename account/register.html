@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <title>Register</title>
+    <title>Register User</title>
     <link rel="stylesheet" href="../src/styles/register.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap"
@@ -27,19 +27,30 @@
 
   <body>
     <header></header>
-    <h1>Register</h1>
-    <form id="register-form">
-      <label for="username">Username: </label>
-      <input type="text" id="username" required />
-      <br />
-      <label for="email">Email: </label>
-      <input type="email" id="email" required />
-      <br />
-      <label for="password">Password:</label>
-      <input type="password" id="password" required />
-      <br />
-      <button type="submit">Register</button>
-    </form>
+    <main class="register-page">
+      <div class="register-container">
+        <h1 class="register-heading">Create an Account</h1>
+        <p class="register-subtitle">Join the adventure with Sienna!</p>
+
+        <form id="register-form" class="register-form">
+          <label for="username">Username</label>
+          <input type="text" id="username" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+
+          <button type="submit" class="register-btn">Register</button>
+        </form>
+
+        <p class="login-link">
+          Already have an account?
+          <a href="/account/login.html">Login here</a>
+        </p>
+      </div>
+    </main>
 
     <script type="module" src="register.mjs"></script>
   </body>

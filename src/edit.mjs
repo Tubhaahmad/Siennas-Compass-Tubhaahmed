@@ -17,7 +17,7 @@ const postUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
 
 const form = document.getElementById("edit-post-form");
 
-/*when the page loads, get the info of the post from the API*/
+/*when the page loads, getting the info of the post from the API*/
 async function loadPostData() {
   try {
     const response = await fetch(postUrl, {
@@ -36,7 +36,7 @@ async function loadPostData() {
     document.getElementById("title").value = post.title;
     document.getElementById("body").value = post.body;
 
-    /*if the post has an img and a link to that img - then find the media input box and fill it with the image url*/
+    /*if the post has an img and a link to that img, then find the media input box and fill it with the image url*/
     if (post.media) {
       if (post.media.url) {
         let mediaInput = document.getElementById("media");
@@ -120,7 +120,7 @@ deleteButton.addEventListener("click", async function () {
 
     if (response.ok) {
       alert("Blog post is deleted!");
-      window.location.href = "/index.html"; /*this is to go back to home page */
+      window.location.href = "/index.html";
     } else {
       const errorData = await response.json();
       console.error("Delete error:", errorData);

@@ -42,7 +42,10 @@ async function getBlogPost() {
     } | Published: ${new Date(post.created).toLocaleDateString()}`;
 
     /*to show the blog post text*/
-    document.getElementById("post-body").textContent = post.body;
+    document.getElementById("post-body").innerHTML = post.body.replace(
+      /\n/g,
+      "<br>"
+    );
 
     /*if the post has an image, use it. If not, show a placeholder image*/
     if (post.media && post.media.url) {
@@ -67,6 +70,7 @@ async function getBlogPost() {
     const message = document.getElementById("copy-message");
 
     /*share button functionality*/
+
     shareBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(window.location.href).then(() => {
         alert("The blog post link has been copied!");
