@@ -146,18 +146,18 @@ function showSlide(index) {
   slideContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
 }
 
-/*Go to next slide*/
+/*go to next slide*/
 
 function nextSlide() {
   showSlide(slideIndex + 1);
 }
 
-/*Go to previous slide*/
+/*go to previous slide*/
 function prevSlide() {
   showSlide(slideIndex - 1);
 }
 
-/*Set up the buttons*/
+/*set up the buttons*/
 
 function initializeSlider() {
   const prevBtn = document.querySelector(".prev");

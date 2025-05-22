@@ -1,3 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Albert Sans", sans-serif;
+  background-color: #d6f1f6;
+}
+
+/*Navbar*/
+.site-header {
+  position: relative;
+  width: 100%;
+  background: #e6f9fd; /* solid background */
+  z-index: 10;
+  border-bottom: 1px solid #b3e1e9;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (width<768px) {
+    padding: 0%;
+  }
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-left a,
+.nav-right a {
+  text-decoration: none;
+
+  font-weight: 500;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-decoration: none;
+  color: #02343f;
+  font-weight: 500;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #a0c5cb;
+}
+
+.logo a {
+  font-size: 1.3rem;
+  text-align: center;
+  font-family: "Playfair Display";
+  text-decoration: none;
+  color: #02343f;
+  font-weight: 500;
+
+  @media (width>850px) {
+    font-size: 1.7rem;
+  }
+
+  @media (width>920px) {
+    font-size: 2.5rem;
+  }
+}
+
+.divider {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  bottom: 1rem;
+}
+
+/* Hamburger toggle */
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 2.4rem;
+  right: 1.5rem;
+}
+
+/* Mobile Nav */
+@media (max-width: 767px) {
+  .nav-toggle-label {
+    display: block;
+    color: #02343f;
+    margin-right: 0.5rem;
+  }
+
+  .logo {
+    padding-top: 3rem;
+  }
+  .divider {
+    display: none;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: #02343f;
+    padding: 1rem;
+  }
+
+  .nav-toggle:checked ~ .nav-left,
+  .nav-toggle:checked ~ .nav-right {
+    display: flex;
+  }
+
+  .nav-container {
+    flex-direction: column;
+  }
+
+  .nav-toggle:checked ~ #navbar-logo {
+    display: none;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    color: #a0c5cb;
+  }
+
+  .nav-left a:hover,
+  .nav-right a:hover,
+  .nav-menu a:hover {
+    color: #bddfe4;
+    text-decoration: underline;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+}
+
 .form-page {
   display: flex;
   justify-content: center;

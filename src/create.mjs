@@ -11,7 +11,7 @@ const form = document.getElementById("create-post-form");
 
 /*when the form is submitted */
 form.addEventListener("submit", async function (event) {
-  event.preventDefault(); // stop page refresh
+  event.preventDefault();
 
   /*get user input from the form and trim whitespace */
   const title = document.getElementById("title").value.trim();
