@@ -6,7 +6,7 @@
 
 :root {
   --primary-color: #02343f;
-  --secondary-color: #4eb3cf;
+
   --accent-color: #a0c5cb;
   --background-color: #d6f1f6;
   --footer-bg: #6d99a1;
@@ -14,7 +14,6 @@
   --card-bg: #dcf5f9;
   --card-border: #b3e1e9;
   --cta-color: #207c96;
-  --heading-color: #5e8e94;
 
   --font-heading: "Playfair Display", serif;
   --font-body: "Albert Sans", sans-serif;
