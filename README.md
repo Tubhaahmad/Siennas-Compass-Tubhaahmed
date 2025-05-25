@@ -11,9 +11,9 @@ This is a vanilla website that displays a list of items fetched from an API.
 <!-- You must replace these links -->
 
 - [Brief](https://lms.noroff.no/mod/folder/view.php?id=121394)
-- [Design](_LINK_TO_FIGMA_)
-- [Production deploy](_LINK_TO_WEBSITE_)
-- [Deployment CI](_LINK_TO_NETLIFY_VERCEL_DASHBOARD_)
+- [Design]((https://www.figma.com/design/5242GeBFzgg0fG7EmCkgbw/Sienna-s-Compass?node-id=0-1&t=1RaxAW8CvAxO4esD-1))
+- [Production deploy](siennascompass-tubhaahmad.netlify.app)
+- [Deployment CI](siennascompass-tubhaahmad.netlify.app)
 - [API Docs](https://docs.noroff.dev/docs/v2/blog/posts)
 - [API Endpoint](https://api.noroff.dev/v2/blog/posts)
 
