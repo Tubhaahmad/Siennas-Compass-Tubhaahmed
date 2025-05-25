@@ -44,8 +44,6 @@ async function loadPostData() {
       }
     }
   } catch (error) {
-    console.log("There was a problem loading the blog post");
-    console.log(error);
     alert("Something went wrong when loading the blog post.");
   }
 
@@ -69,8 +67,6 @@ async function loadPostData() {
         alt: "Updated image",
       };
     }
-
-    console.log("Sending updated post to API:", updatedPost);
 
     try {
       const response = await fetch(postUrl, {

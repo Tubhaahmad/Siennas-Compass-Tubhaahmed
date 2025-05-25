@@ -1,8 +1,6 @@
 import { loadNavbar } from "../src/navbar.mjs";
 loadNavbar();
 
-console.log("The register page is working!!!!!!!");
-
 const form = document.getElementById("register-form");
 
 /*when the form is submitted, run this code*/

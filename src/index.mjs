@@ -1,8 +1,6 @@
 import { loadNavbar } from "./navbar.mjs";
 loadNavbar();
 
-console.log("index.mjs is connected!!!!!!!!!!!!!!");
-
 const ownerUsername = "siennasinclair";
 
 /*gets blog posts from the API*/
@@ -10,8 +8,6 @@ async function fetchBlogPosts() {
   /*to get the login info from local storage*/
   const token = localStorage.getItem("token");
   const apiKey = "35489523-dbb9-48dd-9bfe-d00c2ea7e78b";
-
-  console.log("Token from localStorage:", token);
 
   const headers = {
     "X-Noroff-API-Key": apiKey,

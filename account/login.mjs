@@ -1,8 +1,6 @@
 import { loadNavbar } from "../src/navbar.mjs";
 loadNavbar();
 
-console.log("Login page is working!!!!!!");
-
 const form = document.getElementById("login-form");
 
 /* do this when the form is submitted*/
@@ -45,7 +43,6 @@ form.addEventListener("submit", async function (event) {
     /*this is to go back to the homepage*/
     window.location.href = "../index.html";
   } catch (error) {
-    console.log("Something went wrong:", error);
     alert("Something went wrong. Try again later.");
   }
 });
