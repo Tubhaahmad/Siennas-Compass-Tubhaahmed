@@ -1,17 +1,11 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ihcj5Zgr)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19219285&assignment_repo_type=AssignmentRepo)
 # Blog Front-end Website
-
-This bootstrap template is intended to help you deliever a amazing website which delights your end-users. Feel free to change, remove or start your own project from scratch. Please replace any text which starts with an `_`.
 
 This is a vanilla website that displays a list of items fetched from an API.
 
 ## Resources
 
-<!-- You must replace these links -->
-
 - [Brief](https://lms.noroff.no/mod/folder/view.php?id=121394)
-- [Design]((https://www.figma.com/design/5242GeBFzgg0fG7EmCkgbw/Sienna-s-Compass?node-id=0-1&t=1RaxAW8CvAxO4esD-1))
+- [Design](https://www.figma.com/design/5242GeBFzgg0fG7EmCkgbw/Sienna-s-Compass?node-id=0-1&t=1RaxAW8CvAxO4esD-1)
 - [Production deploy](siennascompass-tubhaahmad.netlify.app)
 - [Deployment CI](siennascompass-tubhaahmad.netlify.app)
 - [API Docs](https://docs.noroff.dev/docs/v2/blog/posts)
@@ -19,18 +13,61 @@ This is a vanilla website that displays a list of items fetched from an API.
 
 ## Deployment
 
-Your deployment is done via static hosting provider (Netlify is recommended).
-You can update your deployment pipeling by editing the [vercel.json](https://vercel.com/docs/concepts/projects/project-configuration).
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FS3ak%2Ffed1-exam-vanilla-frontend-website&env=API_TOKEN,API_SECRET&envDescription=The%20API_TOKEN%20is%20needed%20to%20access%20a%20secure%20API%20endpoint.%20This%20can%20be%20the%20Authorization%20%60Bearer%20Token%60%20header%20used%20to%20make%20queries.&envLink=https%3A%2F%2Fvitejs.dev%2Fguide%2Fenv-and-mode.html&project-name=exam-front-end&repository-name=fed1-exam-vanilla-frontend-website&skippable-integrations=1)
 
 ## Report
 
-_ADD_YOUR_REPORT_HERE_
+1. Summary
+   
+For this project exam, I designed and developed the blog “Sienna’s Compass”. Sienna’s Compass is a personal travel blog for Sienna Sinclair, where she shares travel experiences through immersive, story-driven content. The blog focuses on authentic travel experiences — from uncovering hidden gems and local cultures to exploring well-loved, iconic destinations with fresh perspective.
+Through narratives, photography, and practical tips, Sienna’s Compass encourages meaningful travel and deeper connections with places and people. The blog inspires the readers to travel, and offers both tips and guidance for planning their own journeys.
+Primarly, the target audience for this blog are young adults to adults that are interested in mostly independent travel. It is also aimed towards those who are looking for authentic, cultural, hidden gems or less commercialized travel destinations, for those that are up for an adventure, meaninful and unforgettable experiences.
+ 
+3. Body
+   
+2.1. Main section of report
 
-## Getting Started
+2.1.1 Project Planning
+   
+For this project I first started looking at blogs to get an idea of how they look, and get an idea of the content and how they work, since I myself don’t read blogs that often. After getting an idea of what a blog is, I started brainstorming what I wanted the blog to be about. The first week went to planning and designing a blog for a topic that I did not end up going for, so I had to use another week to design and plan out the travel blog I have today.
+After I had the layout planned out I started to code. I quickly found out that I did not know where to start since I found it hard to take in all the information the exam brief had for us. It took me days to start the coding, and to get an idea of what the blog had to include (pages, user stories, API’s etc.). I quickly got overwhelmed, and felt stuck. But after collecting my thoughts, and just jumped into it, it started to make more sense.
 
-...
+2.1.2 HTML, CSS & JAVASCRIPT
+
+Personally, HTML and CSS aren’t something I necessarily struggle with, but they’re definitely areas where I have room for improvement — especially when it comes to creating responsive layouts and maintaining consistent styling across the project. JavaScript, however, was something entirely different. One of the biggest challenges I faced was working with the API, including understanding how to properly use the API key and tokens. I spent many days on the Noroff documentation site, just reading and trying to figure out what it was saying, telling me to do, and just trying to get them to work and to understand the logic behind it — how to set them up, how to use them correctly, and most importantly, when and where in the code they should be used.
+Local storage was another difficult part. Figuring out how to save data, retrieve it later, and use it across different pages took a lot of trial and error. Trying to connect different pages so they communicated properly — for example, loading a specific blog post on post/index.html when clicked — was something that gave me a lot of trouble. This is where APIs and local storage became essential, but also where it was hardest to get things working.
+Making the blog post carousel was another big challenge. Structuring the slides, getting them to scroll smoothly, and handling user input like next/previous buttons seemed simple at first, but took a lot of work. Making it responsive and styled the way I imagined added even more complexity.
+
+There were moments during the project where I felt completely stuck and overwhelmed. The bugs in the console just wouldn’t stop coming, and the first weeks literally nothing worked. Every time I thought I had fixed something, a new issue would appear, or 10. It was incredibly frustrating, and I often found myself unsure of where to even start debugging. Debugging overall was one of the hardest parts. Sometimes a small syntax error or misplaced line would break everything, and it could take hours to find the source of the problem. I had to get more comfortable using browser developer tools and inspecting the console step by step.
+Looking back, these struggles were difficult but also really valuable. I’ve gained a better understanding of JavaScript logic.Although it was frustrating at times, the process taught me a lot — especially about persistence and problem-solving.
+
+2.3. Conclusion
+
+This project has been one of the most challenging yet rewarding experiences I’ve had while learning web development. While I started out confident with HTML and CSS, working with JavaScript, APIs, tokens, and local storage really pushed me out of my comfort zone. There were many moments where I felt stuck, frustrated, and completely overwhelmed — especially when nothing seemed to work, and the console was filled with countless errors. I also haven’t been consistent with committing changes. This is an area I am aware that I need to improve.
+But through that struggle, I’ve learned so much. Not just about code, but about patience, persistence, and problem-solving. I now have a clearer understanding of how different parts of a web application connect and communicate, and I feel proud that I was able to build something that actually works. There’s still a lot I want to improve, but finishing this project gave me the confidence to keep going and keep learning.
+
+ 
+References
+
+1. Pixels.com Images
+https://www.pexels.com/
+
+2. ChatGPT. (for blog post text & blog stories on post/index.html)
+https://chatgpt.com/
+
+3. https://www.geeksforgeeks.org/
+   
+4. Youtube.com for carousel slider
+https://www.youtube.com/watch?v=749ta0nvj8s
+
+5. https://www.w3schools.com/
+    
+6. Mollify – course content.
+    
+7. Unsplash.com Images
+https://unsplash.com/
+
+8. https://fontawesome.com/
+
 
 ## Minimum acceptence criteria (Required - 50%)
 
@@ -186,7 +223,6 @@ Make sure you go through this checklist before submitting your project to Moodle
 - [ ] I've checked off every todo in this README.
 
 ## Help & Tutorials
-
 - [Web.dev](https://web.dev/learn/forms/)
 - [Fed-Vocational-Astro-Course](https://fed-vocational-astro-course.vercel.app/en/html-css/module-2/forms)
 
@@ -195,6 +231,5 @@ Make sure you go through this checklist before submitting your project to Moodle
 - [Cypress](https://www.cypress.io/) - Next Generation Frontend Tooling
 
 ## Authors
-
-- _YOURE_NAME_ (@_your_github_username_)
+- Tubha Ahmad(@Tubhaahmad)
 - Monde Sineke (@S3ak)
