@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <title></title>
-    <link rel="stylesheet" href="../src/styles/create.css" />
+    <title>Create Blog Post</title>
+
+    <link rel="stylesheet" href="../src/styles/forms.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -27,15 +28,57 @@
   <header></header>
 
   <body>
-    <h1>Create a Blog Post</h1>
-    <form id="create-post-form">
-      <label>Title:<br /><input type="text" id="title" required /></label
-      ><br /><br />
-      <label>Body:<br /><textarea id="body" required></textarea></label
-      ><br /><br />
-      <label>Image URL:<br /><input type="url" id="media" /></label><br /><br />
-      <button type="submit">Create Post</button>
-    </form>
+    <main class="form-page">
+      <div class="form-container">
+        <h1 class="form-heading">Create a Blog Post</h1>
+        <p class="form-subtitle">Share your journey with the world</p>
+
+        <form id="create-post-form">
+          <!-- Title -->
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            placeholder="Enter your blog title"
+            aria-describedby="title-desc"
+          />
+          <p id="title-desc" class="hint">
+            Use 5–10 words to describe your post
+          </p>
+
+          <!-- Body -->
+          <label for="body">Body</label>
+          <textarea
+            id="body"
+            name="body"
+            required
+            rows="6"
+            placeholder="Write your story here..."
+            aria-describedby="body-desc"
+          ></textarea>
+          <p id="body-desc" class="hint">
+            Include personal insights or travel tips
+          </p>
+
+          <!-- Image URL -->
+          <label for="media">Image URL</label>
+          <input
+            type="url"
+            id="media"
+            name="media"
+            aria-describedby="media-desc"
+            required
+          />
+          <p id="media-desc" class="hint">
+            Paste a valid image URL to show a thumbnail
+          </p>
+
+          <button type="submit">Create Post</button>
+        </form>
+      </div>
+    </main>
 
     <script type="module" src="../src/create.mjs"></script>
   </body>

@@ -15,14 +15,13 @@ form.addEventListener("submit", function (event) {
   const password = document.getElementById("password").value.trim();
 
   /*check if the email is a noroff student email*/
-
   const userInfo = {
     name: username,
     email: email,
     password: password,
   };
 
-  /* username registration validation*/
+  /*username registration validation*/
   const namePattern = /^[a-zA-Z0-9_]+$/;
   if (!namePattern.test(username)) {
     alert("Name can only contain numbers, letters and underscores.");

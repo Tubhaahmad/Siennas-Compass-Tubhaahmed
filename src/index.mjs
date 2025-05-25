@@ -49,6 +49,7 @@ async function fetchBlogPosts() {
 }
 
 /*function to show the blog posts grid*/
+
 function renderPostGrid(blogPosts) {
   const grid = document.getElementById("post-grid");
   grid.innerHTML = "";
@@ -63,19 +64,38 @@ function renderPostGrid(blogPosts) {
     const imageUrl =
       post.media && post.media.url
         ? post.media.url
-        : "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?auto=format&fit=crop&w=600&q=80";
+        : "https://images.pexels.com/photos/14452399/pexels-photo-14452399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
     const imageAlt =
-      post.media && post.media.alt ? post.media.alt : "Blog post image";
+      post.media && post.media.alt
+        ? post.media.alt
+        : "Preview image for blog post titled: ${post.title";
 
     card.innerHTML =
       `<img src="${imageUrl}" alt="${imageAlt}">` +
       `<h3 class="post-title">${post.title}</h3>` +
-      `<p class="post-subtitle">${post.body}</p>` +
+      `<p class="post-preview">${post.body}</p>` +
       `<a class="read-more" href="post/index.html?id=${post.id}">read more</a>`;
 
     grid.appendChild(card);
   }
 }
+
+function revealOnScroll() {
+  const cards = document.querySelectorAll(".blog-post-card");
+
+  const triggerPoint = window.innerHeight * 0.9;
+
+  cards.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < triggerPoint) {
+      card.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
 /* CAROUSEL*/
 
@@ -89,21 +109,21 @@ function showCarouselPosts(blogPosts) {
 
     const imageUrl =
       post.media?.url ||
-      "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?auto=format&fit=crop&w=600&q=80";
-    const imageAlt = post.media?.alt || "Blog post image";
+      "https://images.pexels.com/photos/14452399/pexels-photo-14452399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+    const imageAlt =
+      post.media?.alt || "Preview image for blog post titled: ${post.title";
 
     const slide = document.createElement("div");
     slide.classList.add("slide");
 
-    // Reuse your blog card structure
+    /*reuse your blog card structure*/
     slide.innerHTML = `
       <div class="blog-post-card">
-        <img src="${imageUrl}" alt="${imageAlt}">
-        
-        <h3 class="post-title">${post.title}</h3>
-        <p class="post-subtitle">${post.body}</p>
-        <a class="read-more" href="post/index.html?id=${post.id}">read more</a>
-      </div>
+    <img src="${imageUrl}" alt="${imageAlt}">
+    <h3 class="post-title">${post.title}</h3>
+    <p class="post-preview">${post.body}</p>
+    <a class="read-more" href="post/index.html?id=${post.id}">read more</a>
+  </div>
     `;
 
     slideContainer.appendChild(slide);
@@ -112,7 +132,7 @@ function showCarouselPosts(blogPosts) {
 
 let slideIndex = 0;
 
-// Show the slide at the current index
+/*show the slide at the current index*/
 function showSlide(index) {
   const slideContainer = document.querySelector(".slides");
   const totalSlides = document.querySelectorAll(".slide").length;
@@ -129,17 +149,19 @@ function showSlide(index) {
   slideContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
 }
 
-// Go to next slide
+/*go to next slide*/
+
 function nextSlide() {
   showSlide(slideIndex + 1);
 }
 
-// Go to previous slide
+/*go to previous slide*/
 function prevSlide() {
   showSlide(slideIndex - 1);
 }
 
-// Set up the buttons
+/*set up the buttons*/
+
 function initializeSlider() {
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
@@ -149,11 +171,11 @@ function initializeSlider() {
     nextBtn.addEventListener("click", nextSlide);
   }
 
-  // Show first slide on page load
+  /*Show first slide on page load*/
   showSlide(slideIndex);
 }
 
-/* ========== ON PAGE LOAD ========== */
+/*on page load*/
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Page loaded - RUNNING fetchBlogPosts()!!!!");
@@ -161,7 +183,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const posts = await fetchBlogPosts();
   console.log("Blog posts:", posts);
 
-  renderPostGrid(posts); // Show blog grid
-  showCarouselPosts(posts); // Show carousel slides
-  initializeSlider(); // Set up buttons and initial view
+  renderPostGrid(posts);
+  showCarouselPosts(posts);
+  initializeSlider();
+
+  const heroText = document.querySelector(".hero-text-container");
+  if (heroText) {
+    setTimeout(() => {
+      heroText.classList.add("show");
+    }, 300);
+  }
 });
