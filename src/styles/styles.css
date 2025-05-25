@@ -4,9 +4,23 @@
   padding: 0;
 }
 
+:root {
+  --primary-color: #02343f;
+  --secondary-color: #4eb3cf;
+  --accent-color: #a0c5cb;
+  --background-color: #d6f1f6;
+  --footer-bg: #6d99a1;
+  --footer-text: #133a44;
+  --card-bg: #dcf5f9;
+  --card-border: #b3e1e9;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Albert Sans", sans-serif;
+}
+
 body {
-  font-family: "Albert Sans", sans-serif;
-  background-color: #e5faff;
+  font-family: var(--font-body);
+  background-color: var(--background-color);
 }
 
 /*Navbar*/
@@ -52,7 +66,7 @@ body {
 .logo a {
   font-size: 1.3rem;
   text-align: center;
-  font-family: "Playfair Display";
+  font-family: var(--font-heading);
   text-decoration: none;
   color: white;
   font-weight: 500;
@@ -125,7 +139,7 @@ body {
 .nav-left a:hover,
 .nav-right a:hover,
 .nav-menu a:hover {
-  color: #a0c5cb;
+  color: var(--accent-color);
   text-decoration: underline;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -196,15 +210,15 @@ body {
   justify-content: center;
   gap: 1rem;
   margin: 3rem 1rem;
-  background-color: #e6f9fd;
+  background-color: var(--background-color);
   flex-wrap: wrap;
   text-align: center;
 }
 
 .section-heading h2 {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading);
   font-size: 1.2rem;
-  color: #02343f;
+  color: var(--primary-color);
   white-space: nowrap;
 
   @media (width>550px) {
@@ -215,7 +229,7 @@ body {
 .section-heading .line {
   flex: 1;
   height: 2px;
-  background-color: #02343f;
+  background-color: var(--primary-color);
 }
 
 .latest-posts-section {
@@ -332,8 +346,8 @@ body {
 }
 
 .blog-post-card {
-  background: #dcf5f9;
-  border: 1px solid #b3e1e9;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
@@ -395,8 +409,8 @@ body {
 .post-title {
   font-size: 1.4rem;
   margin-top: 1rem;
-  color: #02343f;
-  font-family: "Playfair Display";
+  color: var(--primary-color);
+  font-family: var(--font-heading);
 }
 
 .post-preview {
@@ -407,7 +421,7 @@ body {
   -webkit-box-orient: vertical;
   line-height: 1.5;
   max-height: calc(1.5em * 3);
-  color: #02343f;
+  color: var(--primary-color);
   font-size: 1rem;
   margin: 0.5rem 0 1rem;
   padding-left: 10px;
@@ -437,4 +451,55 @@ body {
 
 .read-more:hover {
   text-decoration: underline;
+}
+
+/*footer*/
+/* Footer */
+.site-footer {
+  background-color: var(--footer-bg);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.site-footer h1 {
+  color: var(--footer-text);
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+}
+
+.footer-nav {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+.footer-nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1rem;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.footer-icons {
+  padding-bottom: 2rem;
+}
+
+.footer-icons a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: var(--footer-text);
+}
+
+.footer-icons a:hover {
+  color: var(--accent-color);
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+  color: #000;
 }

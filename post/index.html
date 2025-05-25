@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <title>Blog Post</title>
     <link rel="stylesheet" href="../src/styles/post.css" />
-    <link rel="stylesheet" href="../src/styles/edit.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -30,27 +30,69 @@
   <body>
     <header></header>
 
-    <main class="post-container">
+    <main class="post-container" aria-label="Blog Post Page">
       <div class="post-heading">
         <h1 id="post-title" class="post-title"></h1>
-        <p id="post-meta" class="post-meta"></p>
+        <p
+          id="post-meta"
+          class="post-meta"
+          aria-label="Post author and publication date"
+        ></p>
       </div>
 
       <div class="post-image-wrapper">
-        <img id="post-image" class="post-image" />
+        <img
+          id="post-image"
+          class="post-image"
+          aria-label="Post image"
+          alt="This image has no alt text"
+        />
       </div>
 
       <div class="share-wrapper">
         <div id="edit-link" class="edit-container"></div>
-        <i id="copy-link-btn" class="share-btn">🔗 Share this post!</i>
-        <span id="copy-message" class="hidden">Link copied!</span>
+        <i
+          id="copy-link-btn"
+          class="share-btn"
+          aria-label="Copy link to share this post"
+          >🔗 Share this post!</i
+        >
+        <span
+          id="copy-message"
+          class="hidden"
+          aria-label="Link copied confirmation"
+          >Link copied!</span
+        >
       </div>
 
       <article class="post-content">
-        <p id="post-body" class="post-text"></p>
+        <p id="post-body" class="post-text" aria-label="Blog post content"></p>
       </article>
     </main>
-    <footer class="site-footer"></footer>
+    <footer class="site-footer">
+      <h1>Sienna’s Compass</h1>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html" aria-label="Home">home</a>
+        <a href="#" aria-label="About page">about</a>
+        <a href="account/login.html" aria-label="Login page">login</a>
+        <a href="account/register.html" aria-label="Register page">register</a>
+      </nav>
+      <div class="footer-icons">
+        <a href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-snapchat"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <p>© 2024 Sienna's Compass. All Rights Reserved.</p>
+    </footer>
 
     <script type="module" src="../src/post.mjs"></script>
   </body>

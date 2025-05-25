@@ -50,7 +50,8 @@ async function getBlogPost() {
     /*if the post has an image, use it. If not, show a placeholder image*/
     if (post.media && post.media.url) {
       image.src = post.media.url;
-      image.alt = post.media.alt || "Blog post image"; /*OR*/
+      image.alt =
+        post.media.alt || `Banner image for blog post titled: ${post.title}`;
     }
 
     /* edit button only if the user logged is is the blog owner*/

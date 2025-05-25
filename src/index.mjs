@@ -64,9 +64,11 @@ function renderPostGrid(blogPosts) {
     const imageUrl =
       post.media && post.media.url
         ? post.media.url
-        : "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?auto=format&fit=crop&w=600&q=80";
+        : "https://images.pexels.com/photos/14452399/pexels-photo-14452399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
     const imageAlt =
-      post.media && post.media.alt ? post.media.alt : "Blog post image";
+      post.media && post.media.alt
+        ? post.media.alt
+        : "Preview image for blog post titled: ${post.title";
 
     card.innerHTML =
       `<img src="${imageUrl}" alt="${imageAlt}">` +
@@ -107,8 +109,9 @@ function showCarouselPosts(blogPosts) {
 
     const imageUrl =
       post.media?.url ||
-      "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5?auto=format&fit=crop&w=600&q=80";
-    const imageAlt = post.media?.alt || "Blog post image";
+      "https://images.pexels.com/photos/14452399/pexels-photo-14452399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+    const imageAlt =
+      post.media?.alt || "Preview image for blog post titled: ${post.title";
 
     const slide = document.createElement("div");
     slide.classList.add("slide");

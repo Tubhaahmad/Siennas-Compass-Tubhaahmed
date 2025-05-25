@@ -51,7 +51,7 @@
       <div class="line"></div>
     </section>
 
-    <!-- CAROUSEL YT VIDEO  -->
+    <!-- CAROUSEL -->
     <div class="slider">
       
       <div class="slides">
@@ -59,8 +59,8 @@
       
   
       </div>
-      <button class="prev"><i class="fas fa-chevron-left"></i></button>
-      <button class="next"><i class="fas fa-chevron-right"></i></button>
+      <button class="prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+      <button class="next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <section class="blog-feed-section">
@@ -71,13 +71,13 @@
         </section>
 
         <div class="blog-post-grid-container">
-          <div id="post-grid" class="post-grid">
-            <div class="blog-post-card">
+          <div id="post-grid" class="post-grid" aria-label="Grid of 12 Blog posts">
+            <div class="blog-post-card" aria-label="A Blog Post">
               <h3 class="post-title"></h3>
               
               <p class="post-subtitle"></p>
            
-              <img id="post-image" />
+              <img id="post-image" aria-label="Blog Post Image" alt="Blog Post Image" />
               <p class="post-date"></p>
               
               <p id="post-meta"></p>
@@ -86,8 +86,32 @@
             </div>
           </div>
         </div>
-        
       </div>
+
+ <footer class="site-footer">
+      <h1>Sienna’s Compass</h1>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html" aria-label="Home">home</a>
+        <a href="#" aria-label="About page">about</a>
+        <a href="account/login.html" aria-label="Login page">login</a>
+        <a href="account/register.html" aria-label="Register page">register</a>
+      </nav>
+      <div class="footer-icons">
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Snapchat">
+          <i class="fab fa-snapchat"></i>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <p>© 2024 Sienna's Compass. All Rights Reserved.</p>
+    </footer>
     
 
     <script type="module" src="./src/index.mjs"></script>

@@ -9,27 +9,23 @@ body {
   background-color: #d6f1f6;
 }
 
-/*Navbar*/
+/* Navbar */
 .site-header {
   position: relative;
   width: 100%;
-  background: #e6f9fd; /* solid background */
+  background: #e6f9fd;
   z-index: 10;
-  border-bottom: 1px solid #b3e1e9;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 40px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  @media (width<768px) {
-    padding: 0%;
-  }
 }
 
 .nav-left,
@@ -42,35 +38,24 @@ body {
 .nav-left a,
 .nav-right a {
   text-decoration: none;
-
   font-weight: 500;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  text-decoration: none;
-  color: #02343f;
-  font-weight: 500;
+  color: var(--primary-color);
 }
 
 .nav-left a:hover,
 .nav-right a:hover {
-  color: #a0c5cb;
+  color: var(--accent-color);
 }
 
 .logo a {
   font-size: 1.3rem;
   text-align: center;
-  font-family: "Playfair Display";
+  font-family: var(--font-heading);
   text-decoration: none;
-  color: #02343f;
+  color: var(--primary-color);
   font-weight: 500;
-
-  @media (width>850px) {
-    font-size: 1.7rem;
-  }
-
-  @media (width>920px) {
-    font-size: 2.5rem;
-  }
 }
 
 .divider {
@@ -79,10 +64,10 @@ body {
   bottom: 1rem;
 }
 
-/* Hamburger toggle */
 .nav-toggle {
   display: none;
 }
+
 .nav-toggle-label {
   display: none;
   font-size: 2rem;
@@ -97,13 +82,17 @@ body {
 @media (max-width: 767px) {
   .nav-toggle-label {
     display: block;
-    color: #02343f;
+    color: var(--accent-color);
     margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
   }
 
   .logo {
     padding-top: 3rem;
+    padding-bottom: 2rem;
   }
+
   .divider {
     display: none;
   }
@@ -113,7 +102,7 @@ body {
     display: none;
     width: 100%;
     flex-direction: column;
-    background-color: #02343f;
+    background-color: var(--primary-color);
     padding: 1rem;
   }
 
@@ -124,6 +113,7 @@ body {
 
   .nav-container {
     flex-direction: column;
+    padding: none;
   }
 
   .nav-toggle:checked ~ #navbar-logo {
@@ -132,7 +122,7 @@ body {
 
   .nav-left a,
   .nav-right a {
-    color: #a0c5cb;
+    color: var(--accent-color);
   }
 
   .nav-left a:hover,

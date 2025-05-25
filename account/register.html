@@ -27,22 +27,46 @@
 
   <body>
     <header></header>
-    <main class="register-page">
+    <main class="register-page" aria-label="Register Page">
       <div class="register-container">
         <h1 class="register-heading">Create an Account</h1>
         <p class="register-subtitle">Join the adventure with Sienna!</p>
 
-        <form id="register-form" class="register-form">
+        <form
+          id="register-form"
+          class="register-form"
+          aria-label="Register Form"
+        >
           <label for="username">Username</label>
-          <input type="text" id="username" required />
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            aria-label="Username"
+          />
 
           <label for="email">Email</label>
-          <input type="email" id="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            aria-label="Email"
+          />
 
           <label for="password">Password</label>
-          <input type="password" id="password" required />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            aria-label="Password"
+          />
 
-          <button type="submit" class="register-btn">Register</button>
+          <button type="submit" class="register-btn" aria-label="Register">
+            Register
+          </button>
         </form>
 
         <p class="login-link">
@@ -51,6 +75,31 @@
         </p>
       </div>
     </main>
+
+    <footer class="site-footer">
+      <h1>Sienna’s Compass</h1>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html" aria-label="Home">home</a>
+        <a href="#" aria-label="About page">about</a>
+        <a href="account/login.html" aria-label="Login page">login</a>
+        <a href="account/register.html" aria-label="Register page">register</a>
+      </nav>
+      <div class="footer-icons">
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Snapchat">
+          <i class="fab fa-snapchat"></i>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <p>© 2024 Sienna's Compass. All Rights Reserved.</p>
+    </footer>
 
     <script type="module" src="register.mjs"></script>
   </body>
