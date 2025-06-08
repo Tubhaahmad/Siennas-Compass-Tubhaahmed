@@ -1,6 +1,7 @@
 # Blog Front-end Website
-
 This is a vanilla website that displays a list of items fetched from an API.
+
+Sienna’s Compass is a personal travel blog for Sienna Sinclair, where she shares travel experiences through immersive, story-driven content. The blog focuses on authentic travel experiences — from uncovering hidden gems and local cultures to exploring well-loved, iconic destinations with fresh perspective. Through narratives, photography, and practical tips, Sienna’s Compass encourages meaningful travel and deeper connections with places and people. The blog inspires the readers to travel, and offers both tips and guidance for planning their own journeys. Primarly, the target audience for this blog are young adults to adults that are interested in mostly independent travel. It is also aimed towards those who are looking for authentic, cultural, hidden gems or less commercialized travel destinations, for those that are up for an adventure, meaninful and unforgettable experiences.
 
 ## Resources
 
